@@ -1,0 +1,8 @@
+apiVersion: blogging.dexhorthy.com/v1alpha1
+kind: Blog
+metadata:
+  name: hello-blog
+spec:
+  title: Some other title
+
+

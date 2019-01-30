@@ -1,0 +1,9 @@
+apiVersion: blogging.dexhorthy.com/v1alpha1
+kind: BlogPost
+metadata:
+  labels:
+    controller-tools.k8s.io: "1.0"
+  name: blogpost-sample
+spec:
+  # Add fields here
+  foo: bar

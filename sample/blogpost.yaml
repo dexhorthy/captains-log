@@ -1,0 +1,9 @@
+apiVersion: blogging.dexhorthy.com/v1alpha1
+kind: BlogPost
+metadata:
+  name: first-post
+spec:
+  blog: hello-blog-2
+  content: lol hey guys again? xx xx
+
+

@@ -1,0 +1,20 @@
+FROM alpine:latest as builder
+
+ENV HUGO_VERSION=0.53
+ENV HUGO_URL=https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+ENV HUGO_SHA256SUM=0e4424c90ce5c7a0c0f7ad24a558dd0c2f1500256023f6e3c0004f57a20ee119
+
+RUN apk add --update openssl git \
+  && git clone https://github.com/ribice/kiss.git /tmp/kiss \
+  && git clone https://github.com/spf13/hyde.git /tmp/hyde
+
+RUN wget ${HUGO_URL} \
+    && echo "${HUGO_SHA256SUM}  hugo_0.53_Linux-64bit.tar.gz" | sha256sum -c - \
+    && tar xvzf ./hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C /tmp
+
+FROM alpine:latest
+COPY --from=builder /tmp/kiss /themes/kiss
+COPY --from=builder /tmp/hyde /themes/hyde
+COPY --from=builder /tmp/hugo .
+EXPOSE 1313
+CMD ["./hugo", "--cacheDir=/tmp", "server", "--source=/src", "--themesDir=/themes", "--bind=0.0.0.0"]
