@@ -123,12 +123,14 @@ func (r *ReconcileBlogPost) Reconcile(request reconcile.Request) (reconcile.Resu
 		return reconcile.Result{}, err
 	}
 
-	// get blog content cm
 	blogContentCM := &corev1.ConfigMap{}
 	if err = r.Get(ctx, types.NamespacedName{Name: blogPost.Spec.Blog + "-content", Namespace: blogPost.Namespace}, blogContentCM); err != nil {
 		return reconcile.Result{}, err
 	}
 
+	if blogContentCM.Data == nil {
+		blogContentCM.Data = map[string]string{}
+	}
 	blogContentCM.Data[blogPost.Name+".md"] = blogPost.Spec.Content
 	if err := r.ensureConfigMap(blogContentCM); err != nil {
 		return reconcile.Result{}, err

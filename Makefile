@@ -1,7 +1,7 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= dexhorthy/captains-log:latest
-HUGO_IMG ?= dexhorthy/captains-log-hugo:latest
+IMG ?= dexhorthy/captains-log
+HUGO_IMG ?= dexhorthy/captains-log-hugo
 
 all: test manager
 

@@ -1,3 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: controller-manager
+    controller-tools.k8s.io: "1.0"
+  name: system
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: controller-manager-service
+  namespace: system
+  labels:
+    control-plane: controller-manager
+    controller-tools.k8s.io: "1.0"
+spec:
+  selector:
+    control-plane: controller-manager
+    controller-tools.k8s.io: "1.0"
+  ports:
+  - port: 443
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -21,7 +44,7 @@ spec:
       containers:
       - command:
         - /manager
-        image: controller:latest
+        image: dexhorthy/captains-log
         imagePullPolicy: Always
         name: manager
         env:
@@ -52,3 +75,9 @@ spec:
         secret:
           defaultMode: 420
           secretName: webhook-server-secret
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: webhook-server-secret
+  namespace: system

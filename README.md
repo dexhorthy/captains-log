@@ -4,7 +4,7 @@ Captain's Log is a Kubernetes Operator for deploying [hugo](https://gohugo.io)-b
 
 ## Getting Started
 
-The recommended way to configure Captains Log is to use [Replicated Ship](https://github.com/replicatedhq/ship):
+The recommended way to configure Captains Log is to use [Ship](https://github.com/replicatedhq/ship):
 
 ```shell
 brew install ship
@@ -18,7 +18,7 @@ You can then use `ship watch && ship update` to watch and configure updates as t
 ## Creating A Blog
 
 
-```sh
+```shell
 echo 'apiVersion: blogging.dexhorthy.com/v1alpha1
 kind: Blog
 metadata:
@@ -29,7 +29,7 @@ spec:
   ' | kubectl apply -f -
 ```
 
-```sh
+```shell
 echo 'apiVersion: blogging.dexhorthy.com/v1alpha1
 kind: BlogPost
 metadata:
@@ -47,6 +47,12 @@ spec:
 ```
 
 If you're using Docker For Mac, the `LoadBalancer` service will let you view your Blog on [localhost:1313](http://localhost:1313). For other Kubernetes providers, use `kubectl get svc` to get the service IP, or use `CluterIP` + `Ingress` to connect.
+
+Edit your post with
+
+```shell
+kubectl edit blogpost first-post
+```
 
 ## Contributing
 
