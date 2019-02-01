@@ -71,16 +71,6 @@ func add(mgr manager.Manager, r reconcile.Reconciler) error {
 		return err
 	}
 
-	// TODO(user): Modify this to be the types you create
-	// Uncomment watch a Deployment created by BlogPost - change this for objects you create
-	err = c.Watch(&source.Kind{Type: &appsv1.Deployment{}}, &handler.EnqueueRequestForOwner{
-		IsController: true,
-		OwnerType:    &bloggingv1alpha1.BlogPost{},
-	})
-	if err != nil {
-		return err
-	}
-
 	return nil
 }
 
