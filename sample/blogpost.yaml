@@ -3,7 +3,16 @@ kind: BlogPost
 metadata:
   name: first-post
 spec:
-  blog: hello-blog-2
-  content: lol hey guys again? xx xx
-
+  blog: my-blog
+  content: 
+      ---
+      title: Here's my first post
+      date: 2018-01-28T14:53:18-08:00
+      draft: false
+      ---
+      
+      ### I'm blogging with Kubectl!
+      
+      And you can too!
+      
 
