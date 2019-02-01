@@ -101,6 +101,7 @@ rules:
   - ""
   resources:
   - secrets
+  - configmaps
   verbs:
   - get
   - list
@@ -121,3 +122,4 @@ rules:
   - update
   - patch
   - delete
+
