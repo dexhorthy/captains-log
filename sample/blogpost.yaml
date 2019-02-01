@@ -4,7 +4,7 @@ metadata:
   name: first-post
 spec:
   blog: my-blog
-  content: 
+  content: |
       ---
       title: Here's my first post
       date: 2018-01-28T14:53:18-08:00
