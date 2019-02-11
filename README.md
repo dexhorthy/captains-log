@@ -8,7 +8,7 @@ The recommended way to configure Captains Log is to use [Ship](https://github.co
 
 ```shell
 brew install ship
-ship init https://github.com/dexhorthy/captains-log/blob/master/install.yaml
+ship init https://github.com/dexhorthy/captains-log/blob/master/operator.yaml
 ```
 
 Ship will download and give you an opportunity to review the Kubernetes manifests included to run Captain's Log. You can create patches and overlays to make any changes necessary for your environment. Once finished, follow the instructions in Ship and `kubectl apply -f rendered.yaml`.
