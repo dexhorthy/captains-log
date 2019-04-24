@@ -2,26 +2,7 @@
 
 Captain's Log is a Kubernetes Operator for deploying [hugo](https://gohugo.io)-based static sites to Kubernetes and managing site content via the Kubernetes API.
 
-## Getting Started
-
-The recommended way to configure Captains Log is to use [Ship](https://github.com/replicatedhq/ship):
-
-```shell
-brew install ship
-ship init https://github.com/dexhorthy/captains-log/blob/master/operator.yaml
-```
-
-Ship will download and give you an opportunity to review the Kubernetes manifests included to run Captain's Log. You can create patches and overlays to make any changes necessary for your environment. Once finished, follow the instructions in Ship and `kubectl apply -f rendered.yaml`.
-
-You can then use `ship watch && ship update` to watch and configure updates as they are shipped here.
-
-#### Raw Install
-
-```
-kubectl apply -f https://raw.githubusercontent.com/dexhorthy/captains-log/master/operator.yaml
-```
-
-## Creating A Blog
+## Usage
 
 
 ```shell
@@ -31,7 +12,7 @@ metadata:
   name: my-blog
 spec:
   title: My Blog
-  serviceType: LoadBalancer # optional
+  serviceType: LoadBalancer
   ' | kubectl apply -f -
 ```
 
@@ -58,6 +39,25 @@ Edit your post with
 
 ```shell
 kubectl edit blogpost first-post
+```
+
+## Getting Started
+
+The recommended way to configure Captains Log is to use [Ship](https://github.com/replicatedhq/ship):
+
+```shell
+brew install ship
+ship init https://github.com/dexhorthy/captains-log/blob/master/operator.yaml
+```
+
+Ship will download and give you an opportunity to review the Kubernetes manifests included to run Captain's Log. You can create patches and overlays to make any changes necessary for your environment. Once finished, follow the instructions in Ship and `kubectl apply -f rendered.yaml`.
+
+You can then use `ship watch && ship update` to watch and configure updates as they are shipped here.
+
+#### Raw Install
+
+```
+kubectl apply -f https://raw.githubusercontent.com/dexhorthy/captains-log/master/operator.yaml
 ```
 
 ## Contributing
