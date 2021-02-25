@@ -2,6 +2,8 @@
 
 Captain's Log is a Kubernetes Operator for deploying [hugo](https://gohugo.io)-based static sites to Kubernetes and managing site content via the Kubernetes API.
 
+If you prefer a sandwich-themed demo, check out the [talk from Kubernetes LA](https://youtu.be/fWUd31TIEfY?t=1656)!
+
 ## Usage
 
 
