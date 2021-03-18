@@ -7,6 +7,11 @@ If you prefer a sandwich-themed demo, check out the [talk from Kubernetes LA](ht
 ## Usage
 
 
+```
+kubectl apply -f https://raw.githubusercontent.com/dexhorthy/captains-log/master/operator.yaml
+```
+
+
 ```shell
 echo 'apiVersion: blogging.dexhorthy.com/v1alpha1
 kind: Blog
@@ -41,12 +46,6 @@ Edit your post with
 
 ```shell
 kubectl edit blogpost first-post
-```
-
-## Getting Started
-
-```
-kubectl apply -f https://raw.githubusercontent.com/dexhorthy/captains-log/master/operator.yaml
 ```
 
 ## Contributing
