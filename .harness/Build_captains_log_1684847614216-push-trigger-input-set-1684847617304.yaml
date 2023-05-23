@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_captains_log_1684847614216-push-trigger-input-set
+  identifier: Build_captains_log_1684847614216pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_captains_log_1684847614216
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
