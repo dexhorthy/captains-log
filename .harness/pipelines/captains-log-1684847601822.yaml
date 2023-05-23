@@ -17,17 +17,25 @@ pipeline:
           cloneCodebase: true
           execution:
             steps:
-              - step:
-                  identifier: dockerbuild
-                  name: docker_build
-                  spec:
-                    image: plugins/docker
-                    settings:
-                      dry_run: "true"
-                      repo: hello/world
-                      tags: latest
-                  timeout: ""
-                  type: Plugin
+              - parallel:
+                  - step:
+                      identifier: dockerbuild
+                      name: docker_build
+                      spec:
+                        image: plugins/docker
+                        settings:
+                          dry_run: "true"
+                          repo: hello/world
+                          tags: latest
+                      timeout: ""
+                      type: Plugin
+                  - step:
+                      type: Run
+                      name: Run_1
+                      identifier: Run_1
+                      spec:
+                        shell: Sh
+                        command: go test ./...
           platform:
             arch: Amd64
             os: Linux
